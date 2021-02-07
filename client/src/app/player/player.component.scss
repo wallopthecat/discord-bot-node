@@ -24,101 +24,46 @@
   }
 }
 
-#container {
-  display: flex;
-  flex-wrap: wrap;
+.container {
   height: calc(100% - 2rem);
   max-height: calc(100% - 2rem);
-  padding: 0.1rem;
+  max-width: 100%;
 
   .component {
-    flex: 1 1 50%;
     height: 100%;
     max-height: 100%;
-    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: block;
+  }
+}
+
+mat-tab-group {
+  max-height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .desktop {
+    display: none;
   }
 
-  #imageContainer {
-    padding: 0;
-    margin: 0.3rem;
-    max-width: 99%;
-    text-align: center;
-
-    img {
-      max-height: 100%;
-      max-width: 100%;
-    }
+  .container {
+    height: calc(100% - 5.5rem);
+    max-height: calc(100% - 5.5rem);
   }
+}
 
-  #currentTrackInfo {
+@media screen and (min-width: 701px) {
+  .mobile {
+    display: none !important;
+  }
+  .container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    padding: 0.3rem;
-    max-width: 99%;
-
-    > * {
-      flex: 1 1 auto;
-      text-align: center;
-    }
-
-    h3 {
-      margin: 0;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-
-      > * {
-        flex: 0 0 auto;
-      }
-
-      .filler {
-        flex-grow: 1;
-      }
-
-      .dummy {
-        visibility: hidden;
-      }
-
-      .disabled {
-        color: darkgray;
-      }
-    }
-  }
-
-  #queueList {
-    height: 100%;
-  }
-
-  .spinner-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-
-  #url-bar-container {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    > * {
-      margin: 0.2rem;
-    }
+    padding: 0.1rem;
 
-    mat-form-field {
-      height: 2.7rem;
-    }
-
-    #urlInput {
-      flex: 1 1 auto;
-    }
-
-    button {
-      flex: 0 0 auto;
-      margin-bottom: auto;
+    .component {
+      flex: 1 1 50%;
     }
   }
 }
